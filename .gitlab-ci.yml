@@ -1,15 +1,7 @@
-stages:   # Los distintos “pasos” que ejecutará nuestro pipeline
+stages:
   - build
-
-
-
-
-build-job:      # donde compilaremos el código
+build-job:
   stage: build  
-
-
-
-
   script:
     - echo "Compiling the code..."
     - javac Fibonacci.java
