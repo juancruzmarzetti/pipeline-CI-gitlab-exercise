@@ -1,10 +1,40 @@
 stages:
   - build
-build-job:
-  stage: build  
+  - test
+  - deploy
+
+before_script:
+  - echo "Preparing environment..."
+
+build_job:
+  stage: build
   script:
-    - echo "Compiling the code..."
+    - echo "Building the project..."
     - javac Fibonacci.java
     - echo "Compile complete."
     - echo "Testing"
     - java Fibonacci
+
+test_job:
+  stage: test
+  script:
+    - echo "Running tests..."
+    # Agrega aquí tus comandos de prueba, si es necesario
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Deploying the project..."
+    # Agrega aquí tus comandos de implementación, si es necesario
+
+
+#stages:
+ # - build
+#build-job:
+ # stage: build  
+  #script:
+   # - echo "Compiling the code..."
+    #- javac Fibonacci.java
+    #- echo "Compile complete."
+    #- echo "Testing"
+    #- java Fibonacci
